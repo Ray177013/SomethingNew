@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Image Slider (Carousel) Part 2 | Coding's Time</title>
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+   <div class="carousel carousel__fade" id="carousel">
+      <div class="carousel_inner">
+         <div class="carousel_item carousel_item__active">
+            <img src="./img/image1.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image2.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image3.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image4.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image5.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image6.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image7.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image8.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image9.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image10.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image11.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image12.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image13.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image14.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image15.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image16.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image17.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image18.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image19.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image20.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image21.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image22.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image23.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image24.png" alt="" class="carousel_img">
+         </div>
+         <div class="carousel_item">
+            <img src="./img/image25.png" alt="" class="carousel_img">
+            <div class="carousel_caption">
+               <div class="choice_buttons">
+                  <button class="choice_btn choice_btn__yes" onclick="goToPageG()">Yes!</button>
+                  <button class="choice_btn choice_btn__always" onclick="goToPageG()">Always.</button>
+                  <button class="choice_btn choice_btn__no" onclick="goToRejection()">no</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="carousel_indicator">
+         <button class="carousel_dot carousel_dot__active"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+         <button class="carousel_dot"></button>
+      </div>
+
+      <div class="carousel_control">
+         <button class="carousel_button carousel_button__prev">
+            <i class="fas fa-chevron-left"></i>
+         </button>
+         <button class="carousel_button carousel_button__next">
+            <i class="fas fa-chevron-right"></i>
+         </button>
+      </div>
+   </div>
+
+   <!-- Explosion Animation -->
+   <div class="explosion_overlay" id="explosionOverlay" style="display: none;">
+      <div class="explosion">
+         <div class="particle"></div>
+         <div class="particle"></div>
+         <div class="particle"></div>
+         <div class="particle"></div>
+         <div class="particle"></div>
+         <div class="particle"></div>
+         <div class="particle"></div>
+         <div class="particle"></div>
+      </div>
+   </div>
+
+   <!-- Fade Transition Overlay -->
+   <div class="fade_overlay" id="fadeOverlay" style="display: none;">
+      <div class="light_particle" style="top: 10%; left: 20%;"></div>
+      <div class="light_particle" style="top: 30%; left: 70%;"></div>
+      <div class="light_particle" style="top: 50%; left: 50%;"></div>
+      <div class="light_particle" style="top: 20%; left: 80%;"></div>
+      <div class="light_particle" style="top: 60%; left: 30%;"></div>
+      <div class="light_particle" style="top: 15%; left: 40%;"></div>
+      <div class="light_particle" style="top: 35%; left: 25%;"></div>
+      <div class="light_particle" style="top: 45%; left: 75%;"></div>
+      <div class="light_particle" style="top: 55%; left: 15%;"></div>
+      <div class="light_particle" style="top: 25%; left: 55%;"></div>
+      <div class="light_particle" style="top: 40%; left: 90%;"></div>
+      <div class="light_particle" style="top: 65%; left: 60%;"></div>
+      <div class="light_particle" style="top: 12%; left: 65%;"></div>
+      <div class="light_particle" style="top: 48%; left: 35%;"></div>
+      <div class="light_particle" style="top: 32%; left: 10%;"></div>
+      <div class="light_particle" style="top: 70%; left: 45%;"></div>
+      <div class="light_particle" style="top: 8%; left: 50%;"></div>
+      <div class="light_particle" style="top: 58%; left: 80%;"></div>
+      <div class="light_particle" style="top: 22%; left: 75%;"></div>
+      <div class="light_particle" style="top: 52%; left: 20%;"></div>
+      <div class="light_particle" style="top: 37%; left: 45%;"></div>
+      <div class="light_particle" style="top: 62%; left: 65%;"></div>
+      <div class="light_particle" style="top: 18%; left: 85%;"></div>
+      <div class="light_particle" style="top: 42%; left: 5%;"></div>
+      <div class="light_particle" style="top: 66%; left: 25%;"></div>
+      <div class="light_particle" style="top: 14%; left: 35%;"></div>
+      <div class="light_particle" style="top: 44%; left: 60%;"></div>
+      <div class="light_particle" style="top: 68%; left: 70%;"></div>
+      <div class="light_particle" style="top: 26%; left: 20%;"></div>
+      <div class="light_particle" style="top: 54%; left: 40%;"></div>
+      <div class="light_particle" style="top: 11%; left: 75%;"></div>
+      <div class="light_particle" style="top: 39%; left: 65%;"></div>
+      <div class="light_particle" style="top: 61%; left: 50%;"></div>
+      <div class="light_particle" style="top: 19%; left: 15%;"></div>
+      <div class="light_particle" style="top: 49%; left: 85%;"></div>
+      <div class="light_particle" style="top: 67%; left: 35%;"></div>
+      <div class="light_particle" style="top: 31%; left: 55%;"></div>
+      <div class="light_particle" style="top: 57%; left: 10%;"></div>
+      <div class="light_particle" style="top: 23%; left: 90%;"></div>
+      <div class="light_particle" style="top: 51%; left: 70%;"></div>
+      <div class="light_particle" style="top: 9%; left: 30%;"></div>
+      <div class="light_particle" style="top: 41%; left: 80%;"></div>
+      <div class="light_particle" style="top: 63%; left: 40%;"></div>
+      <div class="light_particle" style="top: 29%; left: 45%;"></div>
+      <div class="light_particle" style="top: 53%; left: 55%;"></div>
+      <div class="light_particle" style="top: 16%; left: 60%;"></div>
+      <div class="light_particle" style="top: 47%; left: 25%;"></div>
+      <div class="light_particle" style="top: 69%; left: 55%;"></div>
+      <div class="light_particle" style="top: 13%; left: 25%;"></div>
+      <div class="light_particle" style="top: 43%; left: 45%;"></div>
+      <div class="light_particle" style="top: 60%; left: 85%;"></div>
+      <div class="light_particle" style="top: 28%; left: 70%;"></div>
+      <div class="light_particle" style="top: 56%; left: 35%;"></div>
+      <div class="light_particle" style="top: 20%; left: 50%;"></div>
+      <div class="light_particle" style="top: 50%; left: 10%;"></div>
+      <div class="light_particle" style="top: 64%; left: 75%;"></div>
+      <div class="light_particle" style="top: 35%; left: 80%;"></div>
+      <div class="light_particle" style="top: 59%; left: 20%;"></div>
+      <div class="light_particle" style="top: 17%; left: 70%;"></div>
+      <div class="light_particle" style="top: 46%; left: 55%;"></div>
+      <div class="light_particle" style="top: 68%; left: 15%;"></div>
+      <div class="light_particle" style="top: 27%; left: 35%;"></div>
+      <div class="light_particle" style="top: 55%; left: 65%;"></div>
+      <div class="light_particle" style="top: 38%; left: 15%;"></div>
+      <div class="light_particle" style="top: 62%; left: 55%;"></div>
+      <div class="light_particle" style="top: 24%; left: 35%;"></div>
+      <div class="light_particle" style="top: 52%; left: 75%;"></div>
+      <div class="light_particle" style="top: 66%; left: 45%;"></div>
+      <div class="light_particle" style="top: 12%; left: 80%;"></div>
+      <div class="light_particle" style="top: 44%; left: 25%;"></div>
+      <div class="light_particle" style="top: 58%; left: 40%;"></div>
+      <div class="light_particle" style="top: 21%; left: 60%;"></div>
+      <div class="light_particle" style="top: 51%; left: 45%;"></div>
+      <div class="light_particle" style="top: 65%; left: 20%;"></div>
+      <div class="light_particle" style="top: 36%; left: 65%;"></div>
+      <div class="light_particle" style="top: 61%; left: 70%;"></div>
+      <div class="light_particle" style="top: 25%; left: 10%;"></div>
+      <div class="light_particle" style="top: 53%; left: 60%;"></div>
+      <div class="light_particle" style="top: 15%; left: 90%;"></div>
+      <div class="light_particle" style="top: 45%; left: 50%;"></div>
+      <div class="light_particle" style="top: 67%; left: 30%;"></div>
+      <div class="light_particle" style="top: 30%; left: 50%;"></div>
+      <div class="light_particle" style="top: 56%; left: 80%;"></div>
+      <div class="light_particle" style="top: 19%; left: 25%;"></div>
+      <div class="light_particle" style="top: 50%; left: 65%;"></div>
+      <div class="light_particle" style="top: 64%; left: 35%;"></div>
+      <div class="light_particle" style="top: 34%; left: 75%;"></div>
+      <div class="light_particle" style="top: 60%; left: 60%;"></div>
+   </div>
+
+   <!-- Rejection Page -->
+   <div class="page_rejection" id="rejectionPage" style="display: none;">
+      <button class="rejection_no_btn" onclick="goToRejection2()">no.</button>
+      <div class="rejection_content">
+         <h1 class="rejection_title">Really? :c</h1>
+         <button class="rejection_btn" onclick="goToPageG()">just kidding, YESS, I love you!</button>
+      </div>
+   </div>
+
+   <!-- Rejection Page 2 -->
+   <div class="page_rejection" id="rejectionPage2" style="display: none;">
+      <div class="rejection_content">
+         <h1 class="rejection_title">Please, can you be my valentine?</h1>
+         <button class="rejection_btn" onclick="goToPageGFromRejection2()">fine... &lt;3</button>
+      </div>
+   </div>
+
+   <!-- Page G - Final Page -->
+   <div class="page_final" id="pageG" style="display: none;">
+      <img src="./img/image011.png" alt="" class="final_image">
+      <div class="hearts_container">
+         <div class="heart">❤️</div>
+         <div class="heart">❤️</div>
+         <div class="heart">❤️</div>
+         <div class="heart">❤️</div>
+         <div class="heart">❤️</div>
+      </div>
+      <button class="rewind_btn" onclick="rewindToStart()">Rewind</button>
+      <!-- Add GIF here (optional) -->
+      <!-- <img src="./path-to-your-gif.gif" alt="" class="final_gif"> -->
+   </div>
+
+   <script src="./script.js"></script>
+
+   <body bgcolor="black">
+
+</body>
+
+</html>
